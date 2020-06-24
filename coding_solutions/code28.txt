@@ -1,0 +1,36 @@
+ PROGRAM1
+importjava.util.*;
+publicclassabc{
+ 
+  publicstaticvoidmain(String[]args){
+   intnums[][]={{12,20,30,40}, 
+                  {15,25,35,45}, 
+                  {24,29,39,51}, 
+                  {35,30,39,50}, 
+                  {50,60,75,72}}; 
+			   
+	int rows =5;    
+	intsearch_element=39;		   
+     intans[]=Saddleback(nums, rows -1,0,search_element);
+        System.out.println("Position of "+search_element+" in the matrix is ("+ans[0]+","+ans[1]+")");			   
+    } 
+    privatestaticint[]Saddleback(intnums[][],int row,int col,intsearch_element){
+ 
+        //numsay to store the row and column of the searched element
+        intelement_pos[]={-1,-1};
+        if(row <0|| col >=nums[row].length){
+            returnelement_pos;
+        }
+        if(nums[row][col]==search_element){
+            element_pos[0]= row;
+            element_pos[1]= col;
+            returnelement_pos;
+        }
+        elseif(nums[row][col]>search_element){
+            returnSaddleback(nums, row -1, col,search_element);
+        }
+        returnSaddleback(nums, row, col +1,search_element);
+    }
+ 
+}
+
